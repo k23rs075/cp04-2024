@@ -188,11 +188,19 @@
         startTime = new Date(); 
         $('#btnA').prop("disabled", true);
         $('#btnB').prop("disabled", false);
+
+        startTime=new Date();
+        if(a>1){
+            startTime=new Date()-a;
+        }else{
+            startTime=new Date();
+        }
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active = false;
+        a=etime*1000;
         $('#btnA').prop("disabled", false);
         $('#btnB').prop("disabled", true);
     }
@@ -204,6 +212,7 @@
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");
         $("#remain").html("残り時間： " + period);
+        a=0;
     }
     
  
