@@ -222,6 +222,19 @@
                 active=false;
                 alarm();
             }
+
+            var mstr="分: ";
+            for(var i=0; i<m; i++){
+                mstr+="○";
+            }
+            $("#minuteStr").html(mstr);
+
+            var sstr="秒: ";
+            for(var i=0; i<s; i++){
+                sstr+="○";
+            }
+            $("#secondStr").html(sstr);
+            
         }
     } 
 
