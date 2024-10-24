@@ -56,12 +56,16 @@
     }
     
     #btnB {
+        background-color: rgb(255, 87, 87);
+        color: white;
         font-size: 20px;
         position:absolute; top:380px; left:45%; width:25%; height:60px; 
     }
 
     #btnC {
-        font-size: 10px;
+        background-color: rgba(87, 255, 95, 0.451);
+        color: white;
+        font-size: 20px;
         position:absolute; top:380px; left:70%; width:28%; height:60px; 
     }
 
@@ -88,6 +92,8 @@
     }
 
     #btnset {
+        background-color: rgb(255, 255, 255);
+        color: black;
         font-size: 20px;
         position:absolute; top:440px; left:72%; width:25%; height:60px; 
     }
