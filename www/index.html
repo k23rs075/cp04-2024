@@ -38,6 +38,26 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+
+        $('#btn10m').click(function(e) {
+            btn10mClick(e);
+        });
+
+        $('#btn3m').click(function(e) {
+            btn3mClick(e);
+        });
+
+        $('#btn1m').click(function(e) {
+            btn1mClick(e);
+        });
+
+        $('#btn10s').click(function(e) {
+            btn10sClick(e);
+        });
+
+        $('#btnset').click(function(e) {
+            btnsetClick(e);
+        });
         init();
     });
     
@@ -155,6 +175,8 @@
     var period = 0;
     var rest = 0;
     var etime = 0;
+    var pm=0;
+    var ps=0;
 
     
     // ボタンの初期設定
@@ -162,6 +184,11 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btn10m').prop('disabled', false);
+        $('#btn3m').prop('disabled', false);
+        $('#btn1m').prop('disabled', false);
+        $('#btn10s').prop('disabled', false);
+        $('#btnset').prop('disabled', false);
         btnCClick(null);
     }
 
@@ -207,6 +234,15 @@
 
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
+        period=0;
+        pm=0;
+        ps=0;
+        $("#time").html("経過時間： 0");
+        $("#remain").html("残り時間： " + period);
+    }
+
+    // Buttonsetがクリックされた時の処理
+    function btnsetClick(e){
         //alarm();
         active = false;
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
@@ -214,6 +250,27 @@
         $("#remain").html("残り時間： " + period);
         a=0;
     }
+
+
+
+   
+
+    // Button10mがクリックされた時の処理
+    function btn10mClick(e){
+        active = false;
+        period+= 600;
+        $("#time").html("経過時間： 0");
+        pm+=period/60;
+        //ps+=period-pm*60;
+        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
+        a=0;
+        
+    }
+
+
+
+
+    
     
  
     // 繰り返し実行する処理
@@ -243,6 +300,11 @@
                 sstr+="○";
             }
             $("#secondStr").html(sstr);
+
+
+
+
+            
             
         }
     } 
@@ -259,9 +321,14 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Reset</button> 
+    <button id="btn10m">10m</button>   
+    <button id="btn3m">3m</button>  
+    <button id="btn1m">1m</button> 
+    <button id="btn10s">10s</button>  
+    <button id="btnset">Set</button>  
     <input type="number" id="minute" value=0 >
-    <input type="number" id="second" value=15 >
+    <input type="number" id="second" value=0 >
 
     
 </body>
