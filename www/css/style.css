@@ -72,20 +72,19 @@
     }
 
 
-    #btn3m {
+    #btn1m {
         font-size: 20px;
         position:absolute; top:500px; left:22%; width:20%; height:60px; 
     }
 
-
-    #btn1m {
-        font-size: 20px;
-        position:absolute; top:500px; left:42%; width:20%; height:60px; 
-    }
-
     #btn10s {
         font-size: 20px;
-        position:absolute; top:500px; left:72%; width:20%; height:60px; 
+        position:absolute; top:500px; left:45%; width:20%; height:60px; 
+    }
+
+    #btn1s {
+        font-size: 20px;
+        position:absolute; top:500px; left:65%; width:20%; height:60px; 
     }
 
     #btnset {

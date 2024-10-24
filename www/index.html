@@ -43,9 +43,6 @@
             btn10mClick(e);
         });
 
-        $('#btn3m').click(function(e) {
-            btn3mClick(e);
-        });
 
         $('#btn1m').click(function(e) {
             btn1mClick(e);
@@ -53,6 +50,10 @@
 
         $('#btn10s').click(function(e) {
             btn10sClick(e);
+        });
+
+        $('#btn1s').click(function(e) {
+            btn1sClick(e);
         });
 
         $('#btnset').click(function(e) {
@@ -185,9 +186,9 @@
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
         $('#btn10m').prop('disabled', false);
-        $('#btn3m').prop('disabled', false);
         $('#btn1m').prop('disabled', false);
         $('#btn10s').prop('disabled', false);
+        $('#btn1s').prop('disabled', false);
         $('#btnset').prop('disabled', false);
         btnCClick(null);
     }
@@ -265,27 +266,14 @@
             pm=(period-ps)/60;
         }else{
             pm=period/60;
+            ps=0;
         }
         //ps+=period-pm*60;
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
     }
 
-    // Button3mがクリックされた時の処理
-    function btn3mClick(e){
-        active = false;
-        period+= 180;
-        $("#time").html("経過時間： 0");
-        if(period%60!=0){
-            ps=period%60;
-            pm=(period-ps)/60;
-        }else{
-            pm=period/60;
-        }
-        //ps+=period-pm*60;
-        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
-        a=0;
-    }
+    
 
     // Button1mがクリックされた時の処理
     function btn1mClick(e){
@@ -297,6 +285,7 @@
             pm=(period-ps)/60;
         }else{
             pm=period/60;
+            ps=0;
         }
         //ps+=period-pm*60;
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
@@ -308,17 +297,34 @@
         active = false;
         period+= 10;
         $("#time").html("経過時間： 0");
-        if(ps>40){
-            pm+=1;
-            ps=0;
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
         }else{
-            ps=period-pm*60;
+            pm=period/60;
+            ps=0;
         }
         
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
     }
 
+
+    // Button1sがクリックされた時の処理
+    function btn1sClick(e){
+        active = false;
+        period+= 1;
+        $("#time").html("経過時間： 0");
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
+        }else{
+            pm=period/60;
+            ps=0;
+        }
+        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
+        a=0;
+    }
 
 
 
@@ -374,10 +380,10 @@
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
     <button id="btnC">Reset</button> 
-    <button id="btn10m">10m</button>   
-    <button id="btn3m">3m</button>  
+    <button id="btn10m">10m</button>    
     <button id="btn1m">1m</button> 
     <button id="btn10s">10s</button>  
+    <button id="btn1s">1s</button> 
     <button id="btnset">Set</button>  
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=0 >
