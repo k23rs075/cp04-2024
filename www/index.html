@@ -248,7 +248,14 @@
         active = false;
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");
-        $("#remain").html("残り時間： " + period);
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
+        }else{
+            pm=period/60;
+            ps=0;
+        }
+        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
     }
 
