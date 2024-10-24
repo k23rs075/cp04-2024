@@ -260,7 +260,12 @@
         active = false;
         period+= 600;
         $("#time").html("経過時間： 0");
-        pm=period/60;
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
+        }else{
+            pm=period/60;
+        }
         //ps+=period-pm*60;
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
@@ -271,7 +276,12 @@
         active = false;
         period+= 180;
         $("#time").html("経過時間： 0");
-        pm=period/60;
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
+        }else{
+            pm=period/60;
+        }
         //ps+=period-pm*60;
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
@@ -282,8 +292,29 @@
         active = false;
         period+= 60;
         $("#time").html("経過時間： 0");
-        pm=period/60;
+        if(period%60!=0){
+            ps=period%60;
+            pm=(period-ps)/60;
+        }else{
+            pm=period/60;
+        }
         //ps+=period-pm*60;
+        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
+        a=0;
+    }
+
+    // Button10sがクリックされた時の処理
+    function btn10sClick(e){
+        active = false;
+        period+= 10;
+        $("#time").html("経過時間： 0");
+        if(ps>40){
+            pm+=1;
+            ps=0;
+        }else{
+            ps=period-pm*60;
+        }
+        
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
     }
