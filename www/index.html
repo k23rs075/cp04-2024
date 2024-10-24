@@ -260,11 +260,21 @@
         active = false;
         period+= 600;
         $("#time").html("経過時間： 0");
-        pm+=period/60;
+        pm=period/60;
         //ps+=period-pm*60;
         $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
         a=0;
-        
+    }
+
+    // Button3mがクリックされた時の処理
+    function btn3mClick(e){
+        active = false;
+        period+= 180;
+        $("#time").html("経過時間： 0");
+        pm=period/60;
+        //ps+=period-pm*60;
+        $("#remain").html("残り時間： " + pm+"分"+ps+"秒");
+        a=0;
     }
 
 
